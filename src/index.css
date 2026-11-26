@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --green-900: #0B3D1A;
+  --green-700: #1F6B2B;
+  --green-500: #3E9B3F;
+  --gold-500: #F5B52E;
+  --brown-700: #7A3E12;
+  --red-500: #D93B2B;
+  --cream-50: #FBF7EE;
+  --white: #FFFFFF;
+  --text-900: #1B1B1B;
+  --text-500: #6B6B6B;
+  --tint-peach: #FCE3D4;
+  --tint-cream: #FFF1D6;
+  --tint-green: #E3F2DC;
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+  }
+  body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #EFEAE0;
+    color: var(--text-900);
+    margin: 0;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-ui {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hide scrollbars inside phone viewport while keeping scroll functional */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Screen slide transitions (250ms ease) */
+@keyframes slideInRight {
+  from {
+    opacity: 0.7;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0.7;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(240px) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+.animate-screen-forward {
+  animation: slideInRight 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-screen-back {
+  animation: slideInLeft 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-sheet-up {
+  animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f0ebe0 25%, #e5decb 50%, #f0ebe0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.tap-press {
+  transition: transform 140ms cubic-bezier(0.16, 1, 0.3, 1), opacity 140ms ease;
+}
+
+.tap-press:active {
+  transform: scale(0.97);
+}
